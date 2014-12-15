@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html ng-app="TTTApp">
+
+<head >
+	<meta charset="utf-8">
+
+	<title>TIC TAC TOE</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	
+	<!-- AngularJS -->
+	<script src="js/angular.js"></script>
+
+	<!-- Firebase -->
+	<script src="https://cdn.firebase.com/js/client/2.0.4/firebase.js"></script>
+
+	<!-- AngularFire -->
+	<script src="https://cdn.firebase.com/libs/angularfire/0.9.0/angularfire.min.js"></script>
+	
+	<script src="js/app.js"></script>
+	
+	<script src="js/TTTController.js"></script>
+
+</head>
+
+<body ng-controller="TTTController as box">
+
+	<div id="board">
+    	<h1> Tic Tac Toe </h1>
+		<h2>{{box.winner}}</h2>
+    	<!-- <h3>{{box.xScore}}</h3> -->
+  <!--  <h2 ng-show="winner"> Player {{currentPlayer.playerNumber}} Wins!</h2>
+    	<h2 ng-show="draw"> Nobody wins. Draw!</h2> -->
+    	<div class="boxes" ng-repeat="square in box.boxes track by $index" ng-click="box.playerMove($index)">
+
+        		{{square}} 
+        		
+
+      	</div>
+  	</div>
+    <button class="paused" ng-click="box.reset()">Clear</button>
+
+	<div id="playerOne">
+	<input type="text" placeholder="X Enter your name" ng-model="name1">
+	</div>
+	<br>
+	<div id="playerTwo">
+	<!-- <input id="playerOne" type="text" placeholder="Enter your name" ng-model="name1"> -->
+	<input type="text" placeholder="O Enter your name" ng-model="name2">
+	</div>
+  </body>
+
+</html>
